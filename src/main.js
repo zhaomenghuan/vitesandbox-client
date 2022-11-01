@@ -66,10 +66,11 @@ class SandboxClient {
   }
 }
 
+const isProd = window.location.protocol === 'https:';
 // 初始化 service worker 并动态创建 iframe 用于加载被构建应用的页面
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function() {
-    const wb = new Workbox('/serviceWorker.js',{
+    const wb = new Workbox(`${isProd ? '/vitesandbox-client' : ''}/serviceWorker.js`,{
       updateViaCache: 'none',
       type: 'module'
     });

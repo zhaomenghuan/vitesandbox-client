@@ -8,7 +8,7 @@ const ChannelMap = new Map();
 registerRoute(
   /^https?:\/\/[^]*\/([^/]{32})\/vite\/([^/]*)(\/.*)$/,
   async ({ request, url, params }) => {
-    const [busid, wcid, pathname] = params;
+    const [ busid, wcid, pathname ] = params;
     const { href } = url;
     
     let channel = ChannelMap.get(busid);

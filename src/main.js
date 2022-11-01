@@ -32,7 +32,7 @@ class SandboxClient {
       case 'compile-context-inited': {
         // vite worker 初始化编译环境后，动态创建 iframe 用于加载被构建应用的页面
         const iframe = document.createElement('iframe');
-        iframe.src = `/${busid}/vite/${wcid}/`;
+        iframe.src = `./${busid}/vite/${wcid}/`;
         iframe.id = 'inner-sandbox-container';
         iframe.setAttribute('style', 'width: 100%; height: 100vh; border: 0; outline: 0;');
         iframe.dataset.busid = busid;

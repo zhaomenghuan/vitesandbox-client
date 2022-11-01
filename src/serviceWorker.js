@@ -6,7 +6,7 @@ import Channel from '$utils/channel';
 const ChannelMap = new Map();
 
 registerRoute(
-  /^https?:\/\/[^/]*\/([^/]{32})\/vite\/([^/]*)(\/.*)$/,
+  /^https?:\/\/[^]*\/([^/]{32})\/vite\/([^/]*)(\/.*)$/,
   async ({ request, url, params }) => {
     const [busid, wcid, pathname] = params;
     const { href } = url;

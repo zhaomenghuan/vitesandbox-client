@@ -39,7 +39,7 @@ registerRoute(
 );
 
 registerRoute(
-  /^https:\/\/vitesandbox\.fn\..*\.com\/static\/js\//,
+  /^https:\/\/mcuking\.github\.io\/vitesandbox-client\/static\/js\//,
   new CacheFirst({
     cacheName: 'vite-static-root-cache',
     plugins: [

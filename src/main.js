@@ -2,13 +2,6 @@ import { Workbox } from 'workbox-window';
 import Channel from '$utils/channel';
 import MD5 from 'crypto-js/md5';
 
-const transformFiles = (files) => {
-  Object.keys(files).forEach((filename) => {
-    files[filename] = files[filename]?.code;
-  });
-  return files;
-};
-
 class SandboxClient {
   constructor(code, busid, wcid) {
     this.channel = new Channel(busid);
@@ -84,8 +77,7 @@ let sandboxClient;
 // 接收调用沙箱的平台传来的需要构建的项目代码
 window.addEventListener('message', ({ data }) => {
   if(data?.type === 'compile-esm'){
-    const { files: _files, busid: _busid, wcid: _wcid } = data.payload;
-    const files = transformFiles(_files);
+    const { files, busid: _busid, wcid: _wcid } = data.payload;
     if (sandboxClient) {
       sandboxClient.updatePreview(files);
     } else {
